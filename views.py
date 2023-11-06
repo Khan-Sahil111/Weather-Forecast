@@ -9,7 +9,7 @@ def home(request):
     if 'city' in request.POST:
          city = request.POST['city']
     else:
-         city = 'karachi'     
+         city = 'Lahore'     
     
     url = f'https://api.openweathermap.org/data/2.5/weather?q={city}&appid=531fad860df5c9d9bf5d752242f7e968'
     PARAMS = {'units':'metric'}
@@ -45,15 +45,9 @@ def home(request):
     except KeyError:
           exception_occurred = True
           messages.error(request,'Entered data is not available to API')   
-          # city = 'indore'
-          # data = requests.get(url,params=PARAMS).json()
-          
-          # description = data['weather'][0]['description']
-          # icon = data['weather'][0]['icon']
-          # temp = data['main']['temp']
           day = datetime.date.today()
 
-          return render(request,'weatherapp/index.html' ,{'description':'clear sky', 'icon':'01d'  ,'temp':25 , 'day':day , 'city':'karachi' , 'exception_occurred':exception_occurred } )
+          return render(request,'weatherapp/index.html' ,{'description':'clear sky', 'icon':'01d'  ,'temp':25 , 'day':day , 'city':'Lahore' , 'exception_occurred':exception_occurred } )
                
     
     
